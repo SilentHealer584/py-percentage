@@ -1,33 +1,37 @@
-from colorama import Fore
+class color:
+    MAGENTA = "\033[35m"
+    YELLOW = "\033[93m"
+    WHITE = "\033[37m"
+    STOP = "\033[0m"
 
-def help():
-    print(Fore.YELLOW + """
+def help() -> None:
+    print(color.YELLOW + """
 Thank you for using Py Percentage.
 ----------------------------------
 Commands:
 
 percent({number}, {total})""", end='')
-    print(Fore.MAGENTA + """--> Get equivalent of a vlue in percentage (%)""")
-    print(Fore.YELLOW + """
+    print(color.MAGENTA + """--> Get equivalent of a vlue in percentage (%)""")
+    print(color.YELLOW + """
 value({total}, {percentage})""", end='')
-    print(Fore.MAGENTA + """--> Get the value of a certain percentage or find total from value and it's percentage equivalent""")
+    print(color.MAGENTA + """--> Get the value of a certain percentage or find total from value and it's percentage equivalent""")
     
-    print(Fore.YELLOW + """
+    print(color.YELLOW + """
 Example:
-    percent(24, 100)
+    print(percent(24, 100))
     
-    value(129, 20)
+    print(value(129, 20))
     
-    value(38, 100)
+    print(value(38, 100))
     
 >>> 24.0%
 >>> 645.0
 >>> 38.0""")
-    
-    print(Fore.WHITE, end='')
+    print(color.STOP, end='')
+    return
 
-def percent(x, y):
-    print(str((x/y)*100)+'%') #Get value in percentage
+def percent(x, y) -> str:
+    return f"{(x/y)*100}%" #Get value in percentage
 
-def value(x, y):
-    print((x/y)*100) #Get get value of certain percentage
+def value(x, y) -> float:
+    return (x/y)*100 #Get get value of certain percentage
